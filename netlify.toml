@@ -1,0 +1,17 @@
+[build]
+  publish = "dist"
+  command = "npm run build"
+
+[build.environment]
+  NODE_VERSION = "18"
+
+[[redirects]]
+  from = "/*"
+  to = "/index.html"
+  status = 200
+
+[context.production.environment]
+  VITE_SUPABASE_URL = "your_supabase_project_url"
+  VITE_SUPABASE_ANON_KEY = "your_supabase_anon_key"
+  VITE_GEMINI_API_KEY = "AIzaSyBYog0ePAO3hCiw8HoI9IPX4ixLLPtg490"
+  VITE_GEMINI_MODEL = "gemini-1.5-pro"

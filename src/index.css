@@ -1,0 +1,63 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --canvas-beige: #F4EDE4;
+    --canvas-off-white: #FFFBF7;
+    --accent-pink: #F6D9E6;
+    --accent-sage: #C8D3C0;
+    --text-brown: #6F4E37;
+    --text-deep-brown: #2B1E16;
+  }
+
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply bg-canvas-beige text-text-brown font-body;
+    font-feature-settings: "rlig" 1, "calt" 1;
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    @apply font-heading font-semibold text-text-deep-brown;
+  }
+
+  /* Focus ring styles */
+  :focus-visible {
+    @apply outline-none ring-2 ring-accent-sage ring-offset-2 ring-offset-canvas-beige;
+  }
+
+  /* Reduced motion support */
+  @media (prefers-reduced-motion: reduce) {
+    * {
+      animation-duration: 0.01ms !important;
+      animation-iteration-count: 1 !important;
+      transition-duration: 0.01ms !important;
+    }
+  }
+}
+
+@layer components {
+  .btn-primary {
+    @apply bg-accent-sage text-text-deep-brown hover:bg-opacity-90 focus:ring-accent-sage;
+    @apply px-4 py-2 rounded-arete font-medium transition-arete;
+  }
+
+  .btn-secondary {
+    @apply bg-accent-pink text-text-deep-brown hover:bg-opacity-90 focus:ring-accent-pink;
+    @apply px-4 py-2 rounded-arete font-medium transition-arete;
+  }
+
+  .card {
+    @apply bg-canvas-off-white rounded-arete shadow-arete p-6;
+  }
+
+  .input {
+    @apply border border-accent-sage/30 rounded-arete px-3 py-2 bg-canvas-off-white;
+    @apply focus:border-accent-sage focus:ring-1 focus:ring-accent-sage;
+    @apply placeholder:text-text-brown/60;
+  }
+}
