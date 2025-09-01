@@ -45,6 +45,8 @@ export class ReportGenerator {
     ]
 
     // Projects Sheet
+    // const projects = await getProjects()
+    // const tasks = await getTasks()
     const projectsData = [
       ['Projects Overview'],
       [''],
