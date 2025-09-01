@@ -1,12 +1,12 @@
-import React, { ReactNode } from 'react'
-import { useAuth } from '../hooks/useAuth'
-import { LoginForm } from './LoginForm'
+import React, { ReactNode } from 'react';
+import { useAuth } from '../hooks/useAuth';
+import { LoginForm } from './LoginForm';
 
 interface AuthGuardProps {
   children: ReactNode
 }
 
-export function AuthGuard({ children }: AuthGuardProps) {
+export default function AuthGuard({ children }: AuthGuardProps) {
   const { user, loading } = useAuth()
 
   if (loading) {

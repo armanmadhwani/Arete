@@ -1,7 +1,6 @@
-import { useState, useEffect } from 'react'
-import { Slider } from '@radix-ui/react-slider'
-import { Badge } from '@radix-ui/react-badge'
-import { RotateCcw, Settings } from 'lucide-react'
+import React, { useState, useEffect } from 'react';
+import { Slider } from '@radix-ui/react-slider';
+import { CheckCircle2, Circle, RotateCcw, Settings } from 'lucide-react';
 import { cn } from '../lib/utils'
 
 interface ProgressTrackerProps {

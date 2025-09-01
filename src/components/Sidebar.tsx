@@ -1,21 +1,20 @@
 import { NavLink } from 'react-router-dom'
 import { 
-  Home, 
+  LayoutDashboard, 
   FolderOpen, 
-  Kanban, 
   Calendar, 
-  Timeline, 
-  BarChart3,
-  Plus
-} from 'lucide-react'
+  Clock, 
+  BarChart3, 
+  Settings 
+} from 'lucide-react';
 import { cn } from '../lib/utils'
 
 const navigation = [
-  { name: 'Dashboard', href: '/', icon: Home },
+  { name: 'Dashboard', href: '/', icon: LayoutDashboard },
   { name: 'Projects', href: '/projects', icon: FolderOpen },
-  { name: 'Board', href: '/projects/board', icon: Kanban },
+  { name: 'Board', href: '/projects/board', icon: null },
   { name: 'Calendar', href: '/calendar', icon: Calendar },
-  { name: 'Timeline', href: '/timeline', icon: Timeline },
+  { name: 'Timeline', href: '/timeline', icon: Clock },
   { name: 'Insights', href: '/insights', icon: BarChart3 },
 ]
 
