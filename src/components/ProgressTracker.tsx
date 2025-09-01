@@ -1,6 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { Slider } from '@radix-ui/react-slider';
-import { CheckCircle2, Circle, RotateCcw, Settings } from 'lucide-react';
+import { RotateCcw, Settings } from 'lucide-react';
 import { cn } from '../lib/utils'
 
 interface ProgressTrackerProps {
@@ -113,43 +112,35 @@ export function ProgressTracker({
       </div>
 
       <div className="relative">
-        <Slider
-          value={[optimisticValue]}
-          onValueChange={handleValueChange}
-          max={100}
-          step={1}
-          className="relative flex items-center select-none touch-none w-full"
-          disabled={isUpdating}
-        >
-          <div className={cn(
-            'relative flex-1 bg-accent-sage/20 rounded-full',
-            sizeClasses[size]
-          )}>
-            <div
-              className={cn(
-                'absolute left-0 top-0 rounded-full transition-arete',
-                sizeClasses[size],
-                optimisticValue >= 80 ? 'bg-green-500' :
-                optimisticValue >= 60 ? 'bg-yellow-500' :
-                optimisticValue >= 40 ? 'bg-orange-500' :
-                'bg-red-500'
-              )}
-              style={{ width: `${optimisticValue}%` }}
-            />
-          </div>
-          
-          <div
+        <div className="relative">
+          <input
+            type="range"
+            min={0}
+            max={100}
+            step={1}
+            value={optimisticValue}
+            onChange={(e) => handleValueChange([parseInt(e.target.value)])}
+            disabled={isUpdating}
             className={cn(
-              'block rounded-full bg-canvas-off-white border-2 border-accent-sage shadow-arete hover:shadow-arete-lg focus:outline-none focus:ring-2 focus:ring-accent-sage focus:ring-offset-2 focus:ring-offset-canvas-beige transition-arete cursor-pointer',
-              thumbSizeClasses[size],
+              'w-full appearance-none bg-transparent cursor-pointer',
+              sizeClasses[size],
               isUpdating && 'opacity-50 cursor-not-allowed'
             )}
             style={{
-              transform: `translateX(-50%)`,
-              left: `${optimisticValue}%`
+              background: `linear-gradient(to right, ${
+                optimisticValue >= 80 ? '#10b981' :
+                optimisticValue >= 60 ? '#eab308' :
+                optimisticValue >= 40 ? '#f97316' :
+                '#ef4444'
+              } 0%, ${
+                optimisticValue >= 80 ? '#10b981' :
+                optimisticValue >= 60 ? '#eab308' :
+                optimisticValue >= 40 ? '#f97316' :
+                '#ef4444'
+              } ${optimisticValue}%, #e5e7eb ${optimisticValue}%, #e5e7eb 100%)`
             }}
           />
-        </Slider>
+        </div>
         
         {/* Computed value indicator */}
         {isManual && computedValue !== undefined && computedValue !== optimisticValue && (

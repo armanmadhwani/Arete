@@ -1,4 +1,4 @@
-import { useState } from 'react'
+import React, { useState } from 'react'
 import { Plus, MoreHorizontal } from 'lucide-react'
 
 const mockColumns = [
@@ -48,7 +48,7 @@ const priorityColors = {
 }
 
 export function ProjectBoard() {
-  const [projects, setProjects] = useState(mockProjects)
+  const [projects] = useState(mockProjects)
 
   const getProjectsByStatus = (status: string) => {
     return projects.filter(project => project.status === status)

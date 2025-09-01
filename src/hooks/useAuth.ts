@@ -3,8 +3,8 @@ export function useAuth() {
     user: null,
     session: null,
     loading: false,
-    signIn: async () => {},
-    signUp: async () => {},
+    signIn: async (email: string, password: string) => {},
+    signUp: async (email: string, password: string) => {},
     signOut: async () => {},
     resetPassword: async () => {}
   }

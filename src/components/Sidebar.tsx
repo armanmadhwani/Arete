@@ -4,15 +4,16 @@ import {
   FolderOpen, 
   Calendar, 
   Clock, 
-  BarChart3, 
-  Settings 
+  BarChart3,
+  Plus,
+  Kanban
 } from 'lucide-react';
 import { cn } from '../lib/utils'
 
 const navigation = [
   { name: 'Dashboard', href: '/', icon: LayoutDashboard },
   { name: 'Projects', href: '/projects', icon: FolderOpen },
-  { name: 'Board', href: '/projects/board', icon: null },
+  { name: 'Board', href: '/projects/board', icon: Kanban },
   { name: 'Calendar', href: '/calendar', icon: Calendar },
   { name: 'Timeline', href: '/timeline', icon: Clock },
   { name: 'Insights', href: '/insights', icon: BarChart3 },
@@ -41,7 +42,7 @@ export function Sidebar() {
                 )
               }
             >
-              <item.icon className="w-5 h-5" />
+              {item.icon && <item.icon className="w-5 h-5" />}
               <span>{item.name}</span>
             </NavLink>
           ))}

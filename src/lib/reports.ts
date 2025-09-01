@@ -166,8 +166,8 @@ export class ReportGenerator {
   async generatePDFReport(
     analysis: AnalysisResult,
     metrics: PerformanceMetrics,
-    projects: any[],
-    tasks: any[]
+    _projects: any[],
+    _tasks: any[]
   ): Promise<Blob> {
     const doc = new jsPDF()
     const pageWidth = doc.internal.pageSize.width
