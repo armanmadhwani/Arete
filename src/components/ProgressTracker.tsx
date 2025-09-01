@@ -52,11 +52,6 @@ export function ProgressTracker({
     lg: 'h-4'
   }
 
-  const thumbSizeClasses = {
-    sm: 'h-4 w-4',
-    md: 'h-5 w-5',
-    lg: 'h-6 w-6'
-  }
 
   return (
     <div className={cn('space-y-2', className)}>
